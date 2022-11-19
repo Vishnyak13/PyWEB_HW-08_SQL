@@ -1,5 +1,5 @@
 # PyWEB_HW-08_SQL
-## Home work #8 - Create a database of students, course grades and teachers and write db requests
+## Home work #8 - Create a database of students, course grades, teachers and write db requests
 Реалізувати схему бази даних, яка містить:
  - Перелік студентів.
  - Перелік груп.
