@@ -1,0 +1,41 @@
+CREATE TABLE IF NOT EXISTS classes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    class_name VARCHAR(80) UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS students(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    student_name VARCHAR(80) NOT NULL,
+    class_id INTEGER,
+    FOREIGN KEY (class_id) REFERENCES classes(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS teachers(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    teacher_name VARCHAR(80) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS disciplines(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    discipline_name VARCHAR(80) NOT NULL,
+    teacher_id INTEGER,
+    FOREIGN KEY (teacher_id) REFERENCES teachers(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS marks(
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    mark INTEGER NOT NULL,
+    mark_date DATE NOT NULL,
+    student_id INTEGER,
+    discipline_id INTEGER,
+    FOREIGN KEY (student_id) REFERENCES students(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (discipline_id) REFERENCES disciplines(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
