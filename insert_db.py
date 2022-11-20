@@ -43,6 +43,8 @@ def insert_data():
                 for _ in range(MARKS):
                     cursor.execute(sql_marks, (randint(4, 12), fake.date_this_year(), student, discipline,))
 
+        connection.commit()
+
 
 if __name__ == '__main__':
     insert_data()
