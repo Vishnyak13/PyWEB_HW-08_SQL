@@ -13,7 +13,7 @@ fake = Faker('uk_UA')
 
 def insert_data(database):
     try:
-        with sqlite3.connect('education.db') as connection:
+        with sqlite3.connect(database) as connection:
             cursor = connection.cursor()
 
             sql_classes = 'INSERT INTO classes (class_name) VALUES (?)'
