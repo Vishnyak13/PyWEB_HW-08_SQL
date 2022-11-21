@@ -11,7 +11,7 @@ MARKS = 20
 fake = Faker('uk_UA')
 
 
-def insert_data():
+def insert_data(database):
     try:
         with sqlite3.connect('education.db') as connection:
             cursor = connection.cursor()
@@ -49,8 +49,4 @@ def insert_data():
         connection.rollback()
     finally:
         connection.close()
-
-
-if __name__ == '__main__':
-    insert_data()
 
