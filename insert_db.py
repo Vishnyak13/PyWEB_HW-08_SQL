@@ -1,6 +1,4 @@
-import random
 import sqlite3
-from datetime import datetime
 from faker import Faker
 from random import randint, choice
 
@@ -45,6 +43,7 @@ def insert_data():
                         cursor.execute(sql_marks, (randint(4, 12), fake.date_this_year(), student, discipline,))
 
             connection.commit()
+            print('Data inserted!')
     except sqlite3.Error as e:
         print(e)
         connection.rollback()
@@ -54,4 +53,4 @@ def insert_data():
 
 if __name__ == '__main__':
     insert_data()
-    print('Data inserted!')
+
