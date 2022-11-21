@@ -10,8 +10,8 @@ CREATE_SQL_FILE = 'create_database.sql'
 DATABASE = 'education.db'
 
 if __name__ == '__main__':
-    create_db(CREATE_SQL_FILE, DATA_BASE)
-    insert_data(DATA_BASE)
+    create_db(CREATE_SQL_FILE, DATABASE)
+    insert_data(DATABASE)
     print(f'5 students with the highest average score in all disciplines: {get_query(sql_5_stud_high_avg_all_disc, DATABASE)}')
     print(f'1 student with the highest average score in one discipline: {get_query(sql_one_stud_high_avg_one_disc, DATABASE)}')
     print(f'Average score in group for one discipline: {get_query(sql_avg_score_in_group_for_one_disc, DATABASE)}')
